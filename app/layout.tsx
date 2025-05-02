@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {Inter} from "next/font/google";
 import "./globals.css";
+import Image from "next/image";
+import CDPicture from "@/public/cd.png"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -25,8 +24,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} antialiased`}
       >
+<header className="sticky top-0 z-40 w-full border-b bg-background">
+        <div className="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
+          <Link href="/"><div className="flex gap-2 items-center text-lg font-bold">
+            <Image src={CDPicture} className="size-8 object-contain" alt=""/>
+            <span>DJ Resource Guide</span>
+          </div></Link>
+          <div className="flex flex-1 items-center justify-end space-x-4">
+            <nav className="flex items-center space-x-1">
+              <Link
+                href="/#resources"
+                className="px-3 py-2 text-sm font-medium rounded-md hover:bg-accent hover:text-accent-foreground"
+              >
+                Resources
+              </Link>
+              <Button asChild><Link href="/resources/youtube">Start Learning</Link></Button>
+            </nav>
+          </div>
+        </div>
+      </header>
         {children}
       </body>
     </html>
