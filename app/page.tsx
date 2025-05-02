@@ -2,7 +2,7 @@ import Image from "next/image";
 import DeckPicture from "@/public/deck.png"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent,  CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import {  ArrowRightIcon, GlobeIcon} from "lucide-react"
+import {  ArrowRightIcon} from "lucide-react"
 import { LearningResources } from "@/lib/resources";
 import { MusicResources } from "@/lib/resources";
 import Link from "next/link";
@@ -61,9 +61,6 @@ export default function Home() {
                   <p>{i.desc}</p>
                 </CardContent>
                 <CardFooter className="flex items-center gap-2">
-<Button className="aspect-square">
-                  <GlobeIcon className="size-4"/>
-                  </Button>
                   <Button asChild variant="outline" className="flex-1">
                   <Link href={`/resources/${i.id}`}>
                     Learn More
@@ -98,9 +95,6 @@ export default function Home() {
                   <p>{i.desc}</p>
                 </CardContent>
                 <CardFooter className="flex items-center gap-2">
-<Button className="aspect-square">
-                  <GlobeIcon className="size-4"/>
-                  </Button>
                   <Button variant="outline" className="flex-1">
                     Learn More
                     <ArrowRightIcon className="ml-2 size-4"/>
