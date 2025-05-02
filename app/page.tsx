@@ -95,9 +95,12 @@ export default function Home() {
                   <p>{i.desc}</p>
                 </CardContent>
                 <CardFooter className="flex items-center gap-2">
-                  <Button variant="outline" className="flex-1">
+
+                  <Button asChild variant="outline" className="flex-1">
+                  <Link href={`/resources/${i.id}`}>
                     Learn More
                     <ArrowRightIcon className="ml-2 size-4"/>
+                  </Link>
                   </Button>
                 </CardFooter>
               </Card>
